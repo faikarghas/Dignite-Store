@@ -1,9 +1,14 @@
 import React from 'react'
+import Head from 'next/head'
+
 import '../sass/main.scss'
 
 const index = () => {
     return (
         <React.Fragment>
+            <Head>
+                <title>Dignite Store</title>
+            </Head>
             <div className="comingsoon">
                 <header>
                     <img src="../static/image/logo.png" width="50px" height="50px"/>
