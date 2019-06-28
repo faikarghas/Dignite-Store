@@ -1,0 +1,87 @@
+@mixin clearfix {
+    &::after{
+        content : "";
+        display : table;
+        clear   : both;
+    }
+}
+
+@mixin absCenter{
+    position    : absolute;
+    top         : 50%;
+    left        : 50%;
+    transform   : translate(-50%,-50%)
+}
+
+@mixin absCenterBottom{
+    position    : absolute;
+    bottom      : 0%;
+    left        : 50%;
+    transform   : translate(-50%,-50%)
+}
+
+
+//MEDIA QUERY MANAGER
+/*
+0 - 600px       :   Phone
+600 - 900px     :   Tablet Potrait
+600 - 1200px    :   Tablet Landscape
+[1200 - 1800px] :   Tablet Potrait
+1800px +        :   Tablet Potrait
+*/
+
+@mixin respond-phone {
+    @media (max-width: 600px) {@content};
+}
+
+/* 
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-lans
+- big-desktop
+
+ORDER:  Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone270 {
+        @media only screen and (max-width: 16.875em) { @content };    //320px
+    }
+    @if $breakpoint == phone320 {
+        @media only screen and (max-width: 20em) { @content };    //320px
+    }
+    @if $breakpoint == phone375 {
+        @media only screen and (max-width: 23.44em) { @content };    //375px
+    }
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-port2 {
+        @media only screen and (max-width: 48em) { @content };     //768px
+    }
+    @if $breakpoint == tap-desktoppar {
+        @media only screen and (min-width: 48em) { @content };    //768px
+    }
+    @if $breakpoint == tab-land2 {
+        @media only screen and (max-width: 64em) and (orientation: landscape) { @content };    //1024px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 64em) { @content };    //1024px
+    }
+    @if $breakpoint == tab-land1366 {
+        @media only screen and (max-width: 85.375em) and (orientation: landscape) { @content };    //1366px
+    }
+    
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
+
+
+

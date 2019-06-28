@@ -1,0 +1,89 @@
+.comingsoon{
+    background-image: url('../static/image/background2.png');
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5rem;
+    position: relative;
+    h1{
+        font-family: 'Brandon-grotesque-bold';
+        color: white;
+        font-size: 18rem;
+        line-height: 14rem;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+    p{
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 4rem;
+    }
+    .input_notify{
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 2rem;
+        width: 50rem;
+        color: white;
+        @include respond(phone){
+            width: 28rem;
+        }
+        &::placeholder{
+            color: white;
+            font-size: 2rem;
+        }
+        margin-right: 1.5rem;
+    }
+    button{
+        background-color: white;
+        color: #6A6EFD;
+        box-shadow: none;
+        border: none;
+        padding: 2rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+    .cs{
+        position: absolute;
+        top: 20%;
+        left: 10%;
+    }
+
+    .myborder1{
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        width: 2px;
+        background-color: white;
+        height: 15rem;
+    }
+    .social-box{
+        position: absolute;
+        right: 5%;
+        top: 5%;
+    }
+    .social{
+        position: absolute;
+        top: 23rem;
+        right: 4.2%;
+        ul{
+            li{
+                list-style: none;
+                &:nth-child(2){
+                    margin: 1.5rem 0;
+                }
+                img{
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+    .myborder2{
+        position: absolute;
+        top: 40rem;
+        right: 5%;
+        width: 2px;
+        background-color: white;
+        height: 15rem;
+    }
+}
