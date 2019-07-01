@@ -21,15 +21,19 @@ const index = () => {
                         <button>NOTIFY ME</button>
                     </div>
                 </div>
-                {/* <div className="myborder1"></div>
-                <div className="social">
-                    <ul>
-                        <li><img src="../static/image/socialicons/fb-white.png" width="30px" height="30px"/></li>
-                        <li><img src="../static/image/socialicons/instagram-white.png" width="30px" height="30px"/></li>
-                        <li><img src="../static/image/socialicons/twitter-white.png" width="30px" height="30px"/></li>
-                    </ul>
+                <div className="ex">
+                    <div className="row">
+                        <div className="col-4" style={{borderBottom:'1px solid white'}}></div>
+                        <div className="col-4" style={{position:'realtive'}}>
+                            <ul>
+                                <li><img src="../static/image/socialicons/fb-white.png" width="30px" height="30px"/></li>
+                                <li><a href="https://www.instagram.com/dignitestudio/" target="_blank"><img src="../static/image/socialicons/instagram-white.png" width="30px" height="30px"/></a></li>
+                                <li><img src="../static/image/socialicons/twitter-white.png" width="30px" height="30px"/></li>
+                            </ul>
+                        </div>
+                        <div className="col-4" style={{borderBottom:'1px solid white'}}></div>
+                    </div>
                 </div>
-                <div className="myborder2"></div> */}
             </div>
         </React.Fragment>
     )
