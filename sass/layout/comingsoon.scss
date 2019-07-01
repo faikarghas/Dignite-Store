@@ -101,9 +101,9 @@
         right: -10%;
         @include respond(tab-port){
             bottom: 7%;
-            right: 0;
+            right: 10%;
             top: unset;
-            width: 100%;
+            width: 80%;
             transform: none;
         }
         ul{
