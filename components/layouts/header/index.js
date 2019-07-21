@@ -52,7 +52,7 @@ class index extends React.Component{
                     <Col md={2} className="mid_position">
                         <ul>
                             <li><img src="../static/image/Icon/Cart.png" width="30px" height="30px" /></li>
-                            <li className="userAccount" onIlick={this.showLoginHandler}><h4>Sign In</h4></li>
+                            <li className="userAccount" onClick={this.showLoginHandler}><h4>Sign In</h4></li>
                         </ul>
                     </Col>
                 </Row>

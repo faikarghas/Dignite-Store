@@ -47,3 +47,12 @@ input{
         url('../static/fonts/Brandon-grotesque-black.otf') format('otf'),
         url('../static/fonts/Brandon-grotesque-black.ttf') format('ttf');
 }
+
+
+@font-face {
+    font-family: "Brandon-grotesque-bold";
+    src:
+        url('../static/fonts/Brandon-grotesque-bold.woff') format('woff'),
+        url('../static/fonts/Brandon-grotesque-bold.otf') format('otf'),
+        url('../static/fonts/Brandon-grotesque-bold.ttf') format('ttf');
+}
