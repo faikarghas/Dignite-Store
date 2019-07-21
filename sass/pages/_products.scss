@@ -1,0 +1,23 @@
+.section_products{
+    padding: 4rem 0;
+    @include respond(phone){
+        justify-content: flex-start;
+        padding: 2rem 0;
+    }
+    h2{
+        font-size: 5rem;
+        font-family: "Brandon-grotesque-black";
+    }
+    h3{
+        font-size: 3rem;
+    }
+    .filter{
+        display: flex;
+        justify-content: flex-end;
+        @include respond(phone){
+            justify-content: flex-start;
+            padding: 2rem 1.5rem;
+        }
+        position: relative;
+    }
+}

@@ -6,4 +6,9 @@
 @import "base/_typography";
 @import "base/_utilities";
 
-@import "layout/comingsoon.scss"
+@import "layout/comingsoon.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+
+@import "pages/_home.scss";
+@import "pages/_products.scss";
