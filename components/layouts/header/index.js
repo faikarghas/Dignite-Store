@@ -28,7 +28,7 @@ class index extends React.Component{
                         <ul>
                             <li><Link href="/home"><img src="../static/image/logo.png" width="90px" height="90px" /></Link></li>
                             <li className="menu" style={{position:'relative'}}>
-                                <img src="../static/image/icon/OptionToggle.png" width="20px" height="20px" />
+                                <img src="../static/image/Icon/OptionToggle.png" width="20px" height="20px" />
                                 <div className="showmenu">
                                     <ul>
                                         <li><a>All Products</a></li>
@@ -51,8 +51,8 @@ class index extends React.Component{
                     </Col>
                     <Col md={2} className="mid_position">
                         <ul>
-                            <li><img src="../static/image/icon/Cart.png" width="30px" height="30px" /></li>
-                            <li className="userAccount" onClick={this.showLoginHandler}><h4>Sign In</h4></li>
+                            <li><img src="../static/image/Icon/Cart.png" width="30px" height="30px" /></li>
+                            <li className="userAccount" onIlick={this.showLoginHandler}><h4>Sign In</h4></li>
                         </ul>
                     </Col>
                 </Row>
