@@ -1,0 +1,29 @@
+.section_content-contact{
+    padding: 4rem 0;
+    h2{
+        font-size: 4rem;
+        font-family: "Brandon-grotesque-black";
+    }
+    .short-border{
+        border-bottom: 2px solid #222222;
+        width: 30px;
+    }
+    h3{
+        font-size: 3rem;
+        font-family: "Brandon-grotesque-black";
+    }
+    form{
+        input{
+            height: 4rem;
+            font-size: 1.6rem;
+        }
+        textarea{
+            height: 9rem;
+            font-size: 1.6rem;
+        }
+        button{
+            font-size: 1.6rem;
+            padding: .5rem 5rem;
+        }
+    }
+}

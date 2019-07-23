@@ -4,7 +4,8 @@ import {Container,Row,Col,InputGroup,FormControl,Form,Button} from 'react-bootst
 
 class index extends React.Component{
     state = {
-        showLogin : 'hide'
+        showLogin : 'hide',
+        switchSignUp: false
     }
 
     showLoginHandler = () => {
@@ -19,7 +20,15 @@ class index extends React.Component{
         })
     }
 
+    signUpHandler = () => {
+        this.setState({
+            switchSignUp: true
+        })
+    }
+
     render(){
+        console.log(this.state.switchSignUp);
+        
         return (
             <React.Fragment>
             <Container className="header">
@@ -74,6 +83,27 @@ class index extends React.Component{
                                     <img onClick={this.closeLoginHandler} className="top-right" src="../../static/image/Close.png" />
                                 </div>
                                 <div className="sign_in">
+                                { this.state.switchSignUp ?
+                                    <Form>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Control type="email" placeholder="Enter email" />
+                                        </Form.Group>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Control type="email" placeholder="Enter email" />
+                                        </Form.Group>
+                                        <InputGroup className="mb-3">
+                                                <Form.Control type="password" placeholder="Password"
+                                                className="border-right-0"
+                                                />
+                                                <InputGroup.Append>
+                                                <InputGroup.Text id="basic-addon2">Forgot?</InputGroup.Text>
+                                                </InputGroup.Append>
+                                        </InputGroup>
+                                        <Button variant="primary" type="submit">
+                                            Sign Up
+                                        </Button>
+                                    </Form>
+                                    :
                                     <Form>
                                         <Form.Group controlId="formBasicEmail">
                                             <Form.Control type="email" placeholder="Enter email" />
@@ -90,9 +120,10 @@ class index extends React.Component{
                                             Sign In
                                         </Button>
                                     </Form>
+                                }
                                 </div>
                                 <div className="sign_footer">
-                                    <p>New to Creative Market? Sign Up!</p>
+                                    <p>New to Creative Market? <span onClick={this.signUpHandler}>Sign Up!</span></p>
                                 </div>
                             </Col>
                         </Row>

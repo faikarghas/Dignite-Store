@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import {Container,Row,Col,InputGroup,FormControl} from 'react-bootstrap'
 
 const index = props => {
@@ -13,27 +14,23 @@ const index = props => {
                             <FormControl placeholder="Your Email Address"></FormControl>
                         </InputGroup>
                     </Col>
-                    <Col xs={3} className="footerlink">
+                    <Col xs={6} md={3} className="footerlink">
                         <ul>
-                            <li>About</li>
-                            <li>Contact</li>
+                            <Link href="/about"><li>About</li></Link>
+                            <Link href="/contact"><li>Contact</li></Link>
                             <li>Account</li>
                         </ul>
                     </Col>
-                    <Col xs={3} className="footerlink">
+                    <Col xs={6} md={3} className="footerlink">
                         <ul>
-                            <li>Licensing & Terms</li>
-                            <li>Privacy Policy</li>
+                            <Link href="/terms"><li>Licensing & Terms</li></Link>
+                            <Link href="/privacy-policy"><li>Privacy Policy</li></Link>
                             <li>Partnership</li>
                         </ul>
                     </Col>
-                    <Col xs={3} className="footerlink">
+                    <Col xs={12} md={6} className="footerlink sosmed_footer">
                         <ul style={{overflow:'auto'}}>
-                            <li style={{float:'right',color:'#707070'}}>Follow Us</li>
-                        </ul>
-                    </Col>
-                    <Col xs={3} className="footerlink sosmed_footer">
-                        <ul>
+                            <li style={{float:'',color:'#707070'}}>Follow Us</li>
                             <li><img alt="logo-sosmed" src="../static/image/SocialIcons/twitter.png"/></li>
                             <li><img alt="logo-sosmed" src="../static/image/SocialIcons/instagram.png"/></li>
                             <li><img alt="logo-sosmed" src="../static/image/SocialIcons/fb.png"/></li>
@@ -45,7 +42,7 @@ const index = props => {
                     <Col xs={6} className="copyright" style={{justifyContent:'flex-end'}}>
                         <ul>
                             <li className="pr-5"><p>Secure Payment:</p></li>
-                            <li><img alt="logo-midtrans" src="../static/image/midtrans.png" width="150px" height="100%"/></li>
+                            <li><img alt="logo-midtrans" src="../static/image/midtrans.png"/></li>
                         </ul>
                     </Col>
                 </Row>

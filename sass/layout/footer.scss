@@ -25,21 +25,37 @@ footer{
     .footerlink{
         padding: 4rem 0;
         border-bottom: 1px solid #707070;
+        @include respond(phone){
+            padding: 15px;
+        }
         ul{
             list-style: none;
             li{
                 font-size: 2rem;
                 font-weight: 700;
                 color: #454AFC;
+                cursor: pointer;
+                img{
+                    @include respond(phone){
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
             }
         }
     }
     .sosmed_footer{
+        display: flex;
+        justify-content: flex-end;
         ul{
             overflow: auto;
             li{
-                float: right;
-                padding: 0 2rem;
+                padding: 0 2rem 0 0;
+                display: inline-block;
+                img{
+                    object-fit: contain;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -47,9 +63,15 @@ footer{
         padding: 1rem 0;
         display: flex;
         align-items: center;
+        @include respond(phone){
+            padding: 15px;
+        }
         p{
             margin: 0;
             font-size: 2rem;
+            @include respond(phone){
+                font-size: 1.2rem;
+            }
         }
         ul{
             margin: 0;
@@ -58,6 +80,10 @@ footer{
             align-items: center;
             li{
                 display: inline-block;
+                img{
+                    width:100px;
+                    height:100%;
+                }
             }
         }
     }

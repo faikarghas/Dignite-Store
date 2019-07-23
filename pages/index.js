@@ -11,7 +11,7 @@ const index = () => {
             </Head>
             <div className="comingsoon">
                 <header>
-                    <img src="../static/image/logo.png" width="100px" height="100px"/>
+                    {/* <img src="../static/image/logo.png" width="100px" height="100px"/> */}
                 </header>
                 <div className="cs">
                     <h1>Coming <br/> Soon</h1>

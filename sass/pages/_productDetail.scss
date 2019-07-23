@@ -1,0 +1,73 @@
+.section_productDetail-header{
+    .link-category{
+        margin: 4rem 0;
+        a{
+            font-size: 2rem;
+            margin: 0;
+            color: #222222;
+            &:not(:last-child){
+                cursor: pointer;
+                &:hover{
+                    color: #30A4DD;
+                }
+            }
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    h2{
+        font-size: 4rem;
+        font-family: "Brandon-grotesque-black";
+    }
+    p{
+        font-size: 2.5rem;
+    }
+    ul{
+        list-style: none;
+        li{
+            display: inline-block;
+            margin: 0 1rem 0 0;
+            padding: 2rem;
+            cursor: pointer;
+        }
+        .wishlist{
+            background-color: #707070;
+            img{
+                width: 20px;
+                height: 20px;
+                @include respond(phone){
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+        .preview{
+            background-color: #30A4DD;
+            color: white;
+            font-weight: 700;
+        }
+        .addtocart{
+            background-color: #1B904E;
+            color: white;
+            font-weight: 700;
+        }
+    }
+}
+
+.section_productDetail-overview{
+    .layout-detail{
+        margin: 7rem 14rem;
+        @include respond(phone){
+        margin: 7rem 8rem;
+        }
+        h3{
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        img{
+            width: 100%;
+            margin-bottom: 5rem;
+        }
+    }
+}

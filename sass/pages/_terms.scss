@@ -1,0 +1,33 @@
+.section_terms{
+    padding: 4rem 0;
+    .nav{
+        a{
+            font-family: "Brandon-grotesque-black";
+            font-size: 4rem;
+            color: #222222;
+        }
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #222222;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid #30A4DD;
+    }
+    .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    .nav-link {
+        margin: .5rem 3rem .0 0;
+        padding-bottom: 1rem;
+    }
+    .nav-tabs {
+        border-bottom: 3px solid lightgrey;
+        margin-bottom: 0;
+    }
+    .tab-content{
+        margin-top: 5rem;
+    }
+}

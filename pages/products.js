@@ -24,11 +24,6 @@ class Products extends React.Component{
         this.setState({
             pickFilter:name
         })
-        if (name === 'Popular') {
-            console.log('popular');
-        } else if(name === 'On Sale'){
-            console.log('on sale');
-        }
     }
 
 
@@ -50,7 +45,7 @@ class Products extends React.Component{
         })
         return (
             <Layout>
-                <section className="section_products">
+                <section className="section_products-header">
                     <Container>
                         <Row style={{justifyContent:'space-between'}}>
                             <Col xs={12} md={8}>
@@ -70,20 +65,11 @@ class Products extends React.Component{
                                         </ul>
                                     </div>
                                 </div>
-                                {/* <Form.Group controlId="exampleForm.ControlSelect1">
-                                    <Form.Control as="select">
-                                        <option>Most Recent</option>
-                                        <option>Popular</option>
-                                        <option>Price High</option>
-                                        <option>Price Low</option>
-                                        <option>On Sale</option>
-                                    </Form.Control>
-                                </Form.Group> */}
                             </Col>
                         </Row>
                     </Container>
                 </section>
-                <section className="section_allProducts">
+                <section className="section_products-box">
                     <Container>
                         <Tabs defaultActiveKey="Photoshop" id="uncontrolled-tab-example">
                             <Tab eventKey="Photoshop" title="Photoshop">
