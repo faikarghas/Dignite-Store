@@ -77,7 +77,6 @@ class Home extends React.Component{
                             <Tab eventKey="New" title="New Releases">
                                 <Row>
                                     <Link href="/productDetail/[slug]" as={`/productDetail/test`}>
-                                        <a>
                                         <Col xs={6} md={4} className="box_products">
                                             <img src="../static/image/Image1.png" width="100%" height="200px"/>
                                             <ul className="mt-5">
@@ -88,7 +87,6 @@ class Home extends React.Component{
                                                 <li>Rp 10</li>
                                             </ul>
                                         </Col>
-                                        </a>
                                     </Link>
                                 </Row>
                             </Tab>
