@@ -36,16 +36,18 @@ class Home extends React.Component{
         let data = [1,2,3,4,5,6]
         let renderBox = data.map( item => {
             return (
-                <Col xs={6} md={4} className="box_products" key={item}>
-                    <img src="../static/image/Image1.png" width="100%" height="200px"/>
-                    <ul className="mt-5">
-                        <li>
-                            <h2>Product Title</h2>
-                            <p>by Author in Category</p>
-                        </li>
-                        <li>Rp 10</li>
-                    </ul>
-                </Col>
+                <Link href="/productDetail/[slug]" as={`/product/test`}>
+                    <Col xs={6} md={4} className="box_products" key={item}>
+                        <img src="../static/image/Image1.png" width="100%" height="200px"/>
+                        <ul className="mt-5">
+                            <li>
+                                <h2>Product Title</h2>
+                                <p>by Author in Category</p>
+                            </li>
+                            <li>Rp 10</li>
+                        </ul>
+                    </Col>
+                </Link>
             )
         })
         return (
@@ -74,7 +76,20 @@ class Home extends React.Component{
                             </Tab>
                             <Tab eventKey="New" title="New Releases">
                                 <Row>
-                                    {renderBox}
+                                    <Link href="/productDetail/[slug]" as={`/productDetail/test`}>
+                                        <a>
+                                        <Col xs={6} md={4} className="box_products">
+                                            <img src="../static/image/Image1.png" width="100%" height="200px"/>
+                                            <ul className="mt-5">
+                                                <li>
+                                                    <h2>Product Title</h2>
+                                                    <p>by Author in Category</p>
+                                                </li>
+                                                <li>Rp 10</li>
+                                            </ul>
+                                        </Col>
+                                        </a>
+                                    </Link>
                                 </Row>
                             </Tab>
                             <Tab eventKey="Sale" title="On Sale">

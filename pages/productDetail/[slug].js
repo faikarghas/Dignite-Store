@@ -2,9 +2,9 @@ import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import {Container,Row,Col,Tabs,Tab,Form} from 'react-bootstrap'
 import Link from 'next/link'
-import Layout from '../components/layouts'
+import Layout from '../../components/layouts'
 
-import '../sass/main.scss'
+import '../../sass/main.scss'
 
 
 class ProductDetail extends React.Component{
