@@ -37,7 +37,7 @@ const index = props => {
                         </ul>
                     </Col>
                     <Col xs={6} className="copyright">
-                       <p>© 2019 CompanyName. All Rights Reserved.</p>
+                       <p>© 2019 Dignite Store. All Rights Reserved.</p>
                     </Col>
                     <Col xs={6} className="copyright" style={{justifyContent:'flex-end'}}>
                         <ul>

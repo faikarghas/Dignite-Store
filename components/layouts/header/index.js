@@ -1,22 +1,28 @@
 import React from 'react'
 import Link from 'next/link'
 import {Container,Row,Col,InputGroup,FormControl,Form,Button} from 'react-bootstrap'
+import Fade from 'react-reveal/Fade';
+import Router from 'next/router'
+import { Tween, Timeline } from 'react-gsap';
 
 class index extends React.Component{
     state = {
         showLogin : 'hide',
-        switchSignUp: false
+        switchSignUp: false,
+        play1 : 'stop'
     }
 
     showLoginHandler = () => {
         this.setState({
-            showLogin: 'show'
+            showLogin: 'show',
+            play1:'play'
         })
     }
 
     closeLoginHandler = () => {
         this.setState({
-            showLogin: 'hide'
+            showLogin: 'hide',
+            play1:'stop'
         })
     }
 
@@ -26,16 +32,25 @@ class index extends React.Component{
         })
     }
 
+    signInHandler = () => {
+        this.setState({
+            switchSignUp: false
+        })
+    }
+
+    toCart = () => {
+        Router.push('/cart')
+    }
+
+
     render(){
-        console.log(this.state.switchSignUp);
-        
         return (
             <React.Fragment>
             <Container className="header">
                 <Row>
                     <Col md={2} className="mid_position">
                         <ul>
-                            <li><Link href="/home"><img src="../static/image/logo.png" width="90px" height="90px" /></Link></li>
+                            <li><Link href="/home"><img src="../static/image/logo.png" width="90px" height="90px" style={{cursor:'pointer'}}/></Link></li>
                             <li className="menu" style={{position:'relative'}}>
                                 <img src="../static/image/Icon/OptionToggle.png" width="20px" height="20px" />
                                 <div className="showmenu">
@@ -60,19 +75,22 @@ class index extends React.Component{
                     </Col>
                     <Col md={2} className="mid_position">
                         <ul>
-                            <li><img src="../static/image/Icon/Cart.png" width="30px" height="30px" /></li>
+                            <li onClick={this.toCart}><img src="../static/image/Icon/Cart.png" width="30px" height="30px" style={{cursor:'pointer'}}/></li>
                             <li className="userAccount" onClick={this.showLoginHandler}><h4>Sign In</h4></li>
                         </ul>
                     </Col>
                 </Row>
             </Container>
             <div className={`back_box_userlogin ${this.state.showLogin}`}>
+                <Tween from={{ scale: 0.97 }} duration={.4} playState={this.state.play1}>
                 <div className="box_userlogin">
-                    <Container className="full-height">
+                    <Container fluid={true} className="full-height">
                         <Row className="full-height">
                             <Col xs={12} md={6} className="no-gutters box_userlogin-left mid_position">
                                 <div>
-                                    <h2>Welcome Back to <br/> Creative Market</h2>
+                                    <Tween from={{ opacity: 0,x: -50 }} delay={.2} playState={this.state.play1}>
+                                        <h2>Welcome Back to <br/> Creative Market</h2>
+                                    </Tween>
                                     <div className="short_border"></div>
                                     <p>Graphics, fonts, themes, photos and more, starting at $1!</p>
                                 </div>
@@ -123,12 +141,17 @@ class index extends React.Component{
                                 }
                                 </div>
                                 <div className="sign_footer">
-                                    <p>New to Creative Market? <span onClick={this.signUpHandler}>Sign Up!</span></p>
+                                    {this.state.switchSignUp ?
+                                        <p> <span onClick={this.signInHandler}>Sign In!</span></p>
+                                        :
+                                        <p>New to Creative Market? <span onClick={this.signUpHandler}>Sign Up!</span></p>
+                                    }
                                 </div>
                             </Col>
                         </Row>
                     </Container>
                 </div>
+                </Tween>
             </div>
             </React.Fragment>
         )

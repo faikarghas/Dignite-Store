@@ -10,14 +10,8 @@ import '../sass/main.scss'
 class Products extends React.Component{
 
     state = {
-        openFilter : false,
-        pickFilter : 'Most Recent'
-    }
-
-    openFilter = ()=>{
-        this.setState(prevState=>({
-            openFilter : !prevState.openFilter
-        }))
+        pickFilter : 'Most Recent',
+        hover: false
     }
 
     pickFilter = (name) => {
@@ -26,6 +20,17 @@ class Products extends React.Component{
         })
     }
 
+    handleMouseHoverE = () => {
+        this.setState({
+            hover: true
+        })
+    }
+
+    handleMouseHoverL = () => {
+        this.setState({
+            hover: false
+        })
+    }
 
     render(){
         let data = [1,2,3,4,5,6]
@@ -43,6 +48,7 @@ class Products extends React.Component{
                 </Col>
             )
         })
+        console.log(this.state.hover, 'HOVER');
         return (
             <Layout>
                 <section className="section_products-header">
@@ -53,8 +59,8 @@ class Products extends React.Component{
                                 <h3>3482 expertly crafted assets for designers by designers</h3>
                             </Col>
                             <Col xs={12} md={4} className="filter">
-                                <div className="openFilter" onClick={this.openFilter}>
-                                    <h3>{this.state.pickFilter}&nbsp;&nbsp;<p>></p></h3>
+                                <div className="openFilter"  onMouseEnter={this.handleMouseHoverE} onMouseLeave={this.handleMouseHoverL}>
+                                    <h3>{this.state.pickFilter}&nbsp;&nbsp;{this.state.hover ? <img className="img-arrow" src="../static/image/down-arrow.png" width="20px;"/> : <img className="img-arrow up-arrow" src="../static/image/down-arrow.png" width="20px;" /> }</h3>
                                     <div className="filterBox">
                                         <ul>
                                             <li onClick={() =>{this.pickFilter('Most Recent')}}>Most Recent</li>

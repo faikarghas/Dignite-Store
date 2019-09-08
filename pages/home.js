@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {Container,Row,Col,Tabs,Tab} from 'react-bootstrap'
 import {getCookie} from '../lib/cookie'
 import * as action from '../redux/actionIndex'
-
+import * as Scroll from 'react-scroll';
 import Layout from '../components/layouts'
 
 import '../sass/main.scss'
@@ -36,7 +36,7 @@ class Home extends React.Component{
         let data = [1,2,3,4,5,6]
         let renderBox = data.map( item => {
             return (
-                <Link href="/productDetail/[slug]" as={`/product/test`}>
+                <Link href="/productDetail/[slug]" as={`/product/test`} key={item}>
                     <Col xs={6} md={4} className="box_products" key={item}>
                         <img src="../static/image/Image1.png" width="100%" height="200px"/>
                         <ul className="mt-5">
@@ -59,14 +59,14 @@ class Home extends React.Component{
                                 <div style={{padding:'4rem 0'}}>
                                     <h1 className="mb-5">We Craft Premium <br/> Digital Tools.</h1>
                                     <h3 className="mb-5">Over a hundred of digital products, in your fingertips.</h3>
-                                    <div className="explore_button"><Link href="/products"><a>EXPLORE NOW</a></Link></div>
+                                    <Scroll.Link activeClass="active" to="products" duration={500} smooth={true} spy={true}><div className="explore_button">EXPLORE NOW</div></Scroll.Link>
                                 </div>
                             </Col>
                             <Col xs={12} md={4}></Col>
                         </Row>
                     </Container>
                 </section>
-                <section className="section_products-box">
+                <section className="section_products-box" id="products">
                     <Container>
                         <Tabs defaultActiveKey="Featured" id="uncontrolled-tab-example">
                             <Tab eventKey="Featured" title="Featured">
@@ -97,7 +97,7 @@ class Home extends React.Component{
                             </Tab>
                         </Tabs>
                         <div className="text-center mt-5">
-                            <div className="explore_button"><Link href="/products"><a>See All Products</a></Link></div>
+                            <Link href="/products"><a className="explore_button">See All Products</a></Link>
                         </div>
                     </Container>
                 </section>
