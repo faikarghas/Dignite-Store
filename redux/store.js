@@ -12,7 +12,8 @@ const exampleInitialState = {
     infoReg:null,
     infoRegErr:[],
     loginLoading: false,
-    message: null
+    message: null,
+    jumlahBelanja: 0
 }
 
 // REDUCERS
@@ -32,6 +33,8 @@ export const reducer = (state = exampleInitialState, action) => {
             return updateObject(state,{idusers: action.idusers,token: action.payload});
         case actionTypes.WRONGPASSWORD:
             return updateObject(state,{message: action.message});
+        case actionTypes.ADDCART:
+            return updateObject(state,{jumlahBelanja: action.payload});
         default:
             return state
     }

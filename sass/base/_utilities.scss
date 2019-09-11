@@ -137,6 +137,13 @@
           justify-content: space-between;
           li{
               display: inline-block;
+              a{
+                color: #222222;
+                font-size: 2rem;
+              }
+              p{
+                font-size: 1.4rem;
+              }
           }
       }
   }
@@ -361,4 +368,23 @@
 
 #nprogress .spinner {
   display: none;
+}
+
+
+.cart{
+  position: relative;
+  .cn{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    top: -22px;
+    right: -21px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+  }
 }

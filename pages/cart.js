@@ -9,7 +9,35 @@ import '../sass/main.scss'
 
 class Cart extends React.Component{
 
+    state = {
+        data : [
+            {id:1,name:'fun weather'},
+            {id:2,name:'fun weather2'}
+        ]
+    }
+
+    deleteHandler = (id) => {
+        const {data} = this.state
+        this.setState({
+            data : data.filter(item=>{
+                return item.id != id
+            })
+        })
+    }
+
     render(){
+        let loopProduct = this.state.data.map(item=>{
+            return(
+                <tr>
+                    <td>
+                        <img className="delete" src="../static/image/Tash.png" alt="delete" onClick={()=>this.deleteHandler(item.id)}/>
+                        <img className="projectImage" src="../static/image/fun-weather.png" alt="image-product"></img>
+                    </td>
+                    <td>{item.name}</td>
+                    <td>Rp. 10.000</td>
+                </tr>
+            )
+        })
         return (
             <Layout>
                 <div className="cart">
@@ -25,22 +53,7 @@ class Cart extends React.Component{
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <img className="delete" src="../static/image/Tash.png" alt="delete"/>
-                                                <img className="projectImage" src="../static/image/fun-weather.png" alt="image-product"></img>
-                                            </td>
-                                            <td>Fun Weather</td>
-                                            <td>Rp. 10.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img className="delete" src="../static/image/Tash.png" alt="delete"/>
-                                                <img className="projectImage" src="../static/image/fun-weather.png" alt="image-product"></img>
-                                            </td>
-                                            <td>Fun Weather</td>
-                                            <td>Rp. 10.000</td>
-                                        </tr>
+                                        {loopProduct}
                                     </tbody>
                                 </Table>
                             </Col>

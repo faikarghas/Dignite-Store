@@ -3,12 +3,23 @@ import fetch from 'isomorphic-unfetch'
 import {Container,Row,Col,Tabs,Tab,Form} from 'react-bootstrap'
 import Link from 'next/link'
 import Layout from '../../components/layouts'
+import { connect } from 'react-redux'
+import * as action from '../../redux/actionIndex'
 
 import '../../sass/main.scss'
 
 
 class ProductDetail extends React.Component{
-
+    state = {
+        added: false
+    }
+    addCart = () => {
+        let a = 1
+        this.setState({
+            added: true
+        })
+        this.props.addcart(a)
+    }
     render(){
         return (
             <Layout>
@@ -30,7 +41,7 @@ class ProductDetail extends React.Component{
                                 <ul>
                                     <li className="wishlist"><img src="../static/image/Icon/Wishlist.png" alt="logo-wishlist" width="20px" height="20px"/></li>
                                     <li className="preview">PREVIEW</li>
-                                    <li className="addtocart">ADD TO CART Rp.12</li>
+                                    <li className="addtocart" onClick={this.addCart}>{this.state.added ? 'ADDED TO CART' : 'ADD TO CART'}</li>
                                 </ul>
                             </Col>
                         </Row>
@@ -58,4 +69,16 @@ class ProductDetail extends React.Component{
     }
 }
 
-export default ProductDetail
+const mapStateToProps = (state) => {
+    return {
+        jumlahBelanja: state.jumlahBelanja
+    }
+  }
+  
+const mapDispatchToProps = dispatch => {
+    return {
+        addcart : (jumlah) => dispatch(action.addcart(jumlah))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductDetail)

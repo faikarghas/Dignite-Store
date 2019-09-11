@@ -1,5 +1,6 @@
 export {
     authenticate,
     reauthenticate,
-    deauthenticate
+    deauthenticate,
+    addcart
 } from './action';

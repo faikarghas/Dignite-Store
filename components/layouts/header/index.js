@@ -4,6 +4,8 @@ import {Container,Row,Col,InputGroup,FormControl,Form,Button} from 'react-bootst
 import Fade from 'react-reveal/Fade';
 import Router from 'next/router'
 import { Tween, Timeline } from 'react-gsap';
+import { connect } from 'react-redux'
+
 
 class index extends React.Component{
     state = {
@@ -75,7 +77,12 @@ class index extends React.Component{
                     </Col>
                     <Col md={2} className="mid_position">
                         <ul>
-                            <li onClick={this.toCart}><img src="../static/image/Icon/Cart.png" width="30px" height="30px" style={{cursor:'pointer'}}/></li>
+                            <li className="cart" onClick={this.toCart}>
+                                <img src="../static/image/Icon/Cart.png" width="30px" height="30px" style={{cursor:'pointer'}}/>
+                                {this.props.jumlahBelanja === 0 ? '' :
+                                    <div className="cn">{this.props.jumlahBelanja === 0 ? '' : this.props.jumlahBelanja }</div>
+                                }
+                            </li>
                             <li className="userAccount" onClick={this.showLoginHandler}><h4>Sign In</h4></li>
                         </ul>
                     </Col>
@@ -158,4 +165,15 @@ class index extends React.Component{
     }
 }
 
-export default index
+const mapStateToProps = (state) => {
+    return {
+        jumlahBelanja: state.jumlahBelanja
+    }
+  }
+  
+const mapDispatchToProps = dispatch => {
+    return {
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(index)

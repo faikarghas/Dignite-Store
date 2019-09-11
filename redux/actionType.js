@@ -5,4 +5,6 @@ export const LOGINLOADING           = 'LOGINLOADING';
 export const DEAUTHENTICATE         = 'DEAUTHENTICATE';
 export const REAUTHENTICATE         = 'REAUTHENTICATE';
 export const WRONGPASSWORD          = 'WRONGPASSWORD';
+export const ADDCART                = 'ADDCART';
+
 

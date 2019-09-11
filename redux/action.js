@@ -51,4 +51,10 @@ export const deauthenticate = () => {
       Router.replace('/login');
       dispatch({type: actionTypes.DEAUTHENTICATE});
     };
-  };
+};
+
+export const addcart = (jumlah) => {
+  return (dispatch) => {
+    dispatch({type:actionTypes.ADDCART,payload: jumlah})
+  }
+}
