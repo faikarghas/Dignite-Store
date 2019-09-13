@@ -11,14 +11,14 @@ const index = props => {
                         <h2 className="mb-5">Subscribe to be the first</h2>
                         <h3 className="mb-5">Enjoy private promo offers and get new products <br/> before they announced in public.</h3>
                         <InputGroup className="justify-content-center">
-                            <FormControl placeholder="Your Email Address"></FormControl>
+                            <FormControl placeholder="Your Email Address" autoComplete="username"></FormControl>
                         </InputGroup>
                     </Col>
                     <Col xs={6} md={3} className="footerlink">
                         <ul>
                             <Link href="/about"><li>About</li></Link>
                             <Link href="/contact"><li>Contact</li></Link>
-                            <li>Account</li>
+                            <Link href="/account"><li>Account</li></Link>
                         </ul>
                     </Col>
                     <Col xs={6} md={3} className="footerlink">

@@ -1,0 +1,34 @@
+.wishlist{
+    .box_products{
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            li{
+                display: flex;
+                align-items: center;
+                a{
+                  color: #222222;
+                  font-size: 2rem;
+                }
+                p{
+                  font-size: 1.4rem;
+                }
+            }
+        }
+        &-img{
+            position: relative;
+            .loveImg{
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                .likes2{
+                    fill: rgb(255, 3, 3);
+                }
+            }
+        }
+    }
+}

@@ -95,7 +95,8 @@ class Cart extends React.Component{
                                     <tbody>
                                         <tr>
                                             <td>
-                                                Enter your coupon code if you have one.
+                                                <p>Enter your coupon code if you have one.</p>
+                                                <p style={{color:'#FF0000'}}>No coupon has been entered</p>
                                                 <Form>
                                                     <Form.Group>
                                                         <Form.Control type="text"/>

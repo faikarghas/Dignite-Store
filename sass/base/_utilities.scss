@@ -388,3 +388,48 @@
     color: white;
   }
 }
+
+.link-category{
+  margin: 4rem 0;
+  a{
+      font-size: 2rem;
+      margin: 0;
+      color: #222222;
+      // &:not(:last-child){
+      //     cursor: pointer;
+      //     &:hover{
+      //         color: #30A4DD;
+      //     }
+      // }
+      &:hover{
+          text-decoration: none;
+      }
+  }
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid black;
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px white inset;
+}
+
+
+
+.posA-ctr{
+  display: flex;
+  align-items: center;
+}
+
+.posJ-ctr{
+  display: flex;
+  justify-content: center;
+}

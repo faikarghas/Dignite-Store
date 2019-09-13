@@ -1,21 +1,4 @@
 .section_productDetail-header{
-    .link-category{
-        margin: 4rem 0;
-        a{
-            font-size: 2rem;
-            margin: 0;
-            color: #222222;
-            &:not(:last-child){
-                cursor: pointer;
-                &:hover{
-                    color: #30A4DD;
-                }
-            }
-            &:hover{
-                text-decoration: none;
-            }
-        }
-    }
     h2{
         font-size: 4rem;
         font-family: "Brandon-grotesque-black";

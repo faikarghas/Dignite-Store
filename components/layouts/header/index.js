@@ -71,9 +71,9 @@ class index extends React.Component{
                         </ul>
                     </Col>
                     <Col md={8} className="mid_position">
-                        <InputGroup>
-                            <FormControl placeholder="Search"></FormControl>
-                        </InputGroup>
+                        {/* <InputGroup> */}
+                            {/* <FormControl placeholder="Search"></FormControl> */}
+                        {/* </InputGroup> */}
                     </Col>
                     <Col md={2} className="mid_position">
                         <ul>
@@ -111,17 +111,25 @@ class index extends React.Component{
                                 { this.state.switchSignUp ?
                                     <Form>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control type="email" placeholder="Enter email" />
+                                            <Form.Control type="text" placeholder="Username" />
                                         </Form.Group>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control type="email" placeholder="Enter email" />
+                                            <Form.Control type="email" placeholder="Enter email" autoComplete="username" />
                                         </Form.Group>
                                         <InputGroup className="mb-3">
                                                 <Form.Control type="password" placeholder="Password"
-                                                className="border-right-0"
+                                                className="border-right-0" autoComplete="current-password"
                                                 />
                                                 <InputGroup.Append>
-                                                <InputGroup.Text id="basic-addon2">Forgot?</InputGroup.Text>
+                                                <InputGroup.Text id="basic-addon2">Show</InputGroup.Text>
+                                                </InputGroup.Append>
+                                        </InputGroup>
+                                        <InputGroup className="mb-3">
+                                                <Form.Control type="password" placeholder="Re-Password"
+                                                className="border-right-0" autoComplete="off"
+                                                />
+                                                <InputGroup.Append>
+                                                <InputGroup.Text id="basic-addon2"></InputGroup.Text>
                                                 </InputGroup.Append>
                                         </InputGroup>
                                         <Button variant="primary" type="submit">
@@ -131,14 +139,14 @@ class index extends React.Component{
                                     :
                                     <Form>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control type="email" placeholder="Enter email" />
+                                            <Form.Control type="email" placeholder="Enter email" autoComplete="username" />
                                         </Form.Group>
                                         <InputGroup className="mb-3">
                                                 <Form.Control type="password" placeholder="Password"
-                                                className="border-right-0"
+                                                className="border-right-0" autoComplete="current-password"
                                                 />
                                                 <InputGroup.Append>
-                                                <InputGroup.Text id="basic-addon2">Forgot?</InputGroup.Text>
+                                                <InputGroup.Text id="basic-addon2">Show</InputGroup.Text>
                                                 </InputGroup.Append>
                                         </InputGroup>
                                         <Button variant="primary" type="submit">

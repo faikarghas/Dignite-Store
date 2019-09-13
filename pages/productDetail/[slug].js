@@ -11,7 +11,13 @@ import '../../sass/main.scss'
 
 class ProductDetail extends React.Component{
     state = {
-        added: false
+        added: false,
+        wishlistAdded : false
+    }
+    addWish = () => {
+        this.setState(prevState => ({
+            wishlistAdded : !prevState.wishlistAdded
+        }))
     }
     addCart = () => {
         let a = 1
@@ -21,6 +27,10 @@ class ProductDetail extends React.Component{
         this.props.addcart(a)
     }
     render(){
+        const {wishlistAdded} = this.state
+
+        let src = wishlistAdded ? 'WishlistAdded' : 'Wishlist'
+
         return (
             <Layout>
                 <section className="section_productDetail-header">
@@ -39,7 +49,7 @@ class ProductDetail extends React.Component{
                             </Col>
                             <Col xs={12} md={6} className="right_position">
                                 <ul>
-                                    <li className="wishlist"><img src="../static/image/Icon/Wishlist.png" alt="logo-wishlist" width="20px" height="20px"/></li>
+                                    <li className="wishlist" onClick={this.addWish}><img src={`../static/image/Icon/${src}.png`} alt="logo-wishlist" width="20px" height="20px"/></li>
                                     <li className="preview">PREVIEW</li>
                                     <li className="addtocart" onClick={this.addCart}>{this.state.added ? 'ADDED TO CART' : 'ADD TO CART'}</li>
                                 </ul>
@@ -74,7 +84,7 @@ const mapStateToProps = (state) => {
         jumlahBelanja: state.jumlahBelanja
     }
   }
-  
+
 const mapDispatchToProps = dispatch => {
     return {
         addcart : (jumlah) => dispatch(action.addcart(jumlah))
