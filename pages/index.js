@@ -26,9 +26,9 @@ const index = () => {
                         <div className="col-4" style={{borderBottom:'1px solid white'}}></div>
                         <div className="col-4" style={{position:'realtive'}}>
                             <ul>
-                                <li><img src="../static/image/SocialIcons/fb-white.png" width="30px" height="30px"/></li>
-                                <li><a href="https://www.instagram.com/dignitestudio/" target="_blank"><img src="../static/image/SocialIcons/instagram-white.png" width="30px" height="30px"/></a></li>
-                                <li><img src="../static/image/SocialIcons/twitter-white.png" width="30px" height="30px"/></li>
+                                <li><img src="../static/image/SocialIcons/fb-white.png" width="30px" height="30px" alt="logo-fb"/></li>
+                                <li><a href="https://www.instagram.com/dignitestudio/" target="_blank"><img src="../static/image/SocialIcons/instagram-white.png" width="30px" height="30px" alt="logo-ig"/></a></li>
+                                <li><img src="../static/image/SocialIcons/twitter-white.png" width="30px" height="30px" alt="logo-tw"/></li>
                             </ul>
                         </div>
                         <div className="col-4" style={{borderBottom:'1px solid white'}}></div>
