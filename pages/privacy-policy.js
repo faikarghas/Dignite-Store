@@ -1,12 +1,9 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
-import {Tabs,Tab,Form} from 'react-bootstrap'
-import {Container,TextField, Grid } from "@material-ui/core"
-import Link from 'next/link'
+import Grid from "@material-ui/core/Grid"
+import Container from "@material-ui/core/Container"
+
 import Layout from '../components/layouts'
-import { connect } from 'react-redux'
 import {getCookie} from '../lib/cookie'
-import * as action from '../redux/actionIndex'
 import {reauthenticate,verify_auth,deauthenticate} from '../redux/action'
 
 
