@@ -1,13 +1,52 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
 import {Container,Row,Col,Tabs,Tab,Form} from 'react-bootstrap'
 import Layout from '../components/layouts'
 import InfiniteScroll from "react-infinite-scroll-component";
-
-import '../sass/main.scss'
+import { connect } from 'react-redux'
+import {getCookie} from '../lib/cookie'
+import * as action from '../redux/actionIndex'
+import {reauthenticate,verify_auth,deauthenticate} from '../redux/action'
 
 
 class Products extends React.Component{
+    static async getInitialProps(ctx){
+
+        const token = ctx.store.getState().auth.token;
+
+        if(ctx.res){
+          ctx.res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+        }
+        if(ctx && !process.browser) {
+            if(ctx.req.headers.cookie) {
+                // get cookie
+                const token = getCookie('token', ctx.req)
+                // verify cookie
+                let aw = await ctx.store.dispatch(verify_auth(token))
+                // if true reauth
+                if (aw.success === true) {
+                    console.log('verified');
+                    await ctx.store.dispatch(reauthenticate(getCookie('token', ctx.req),getCookie('idusers', ctx.req)))
+                } else {
+                    await ctx.store.dispatch(deauthenticate())
+                    console.log('not verified');
+                }
+            }
+        } else {
+            // verify token
+            let aw = await ctx.store.dispatch(verify_auth(token))
+            if (aw.success === true) {
+                console.log('verified');
+            } else {
+                await ctx.store.dispatch(deauthenticate())
+                console.log('not verified');
+            }
+        }
+
+
+        return { }
+
+    }
+
 
     state = {
         pickFilter : 'Most Recent',
@@ -37,7 +76,7 @@ class Products extends React.Component{
         let renderBox = data.map( (item,index) => {
             return (
                 <Col xs={6} md={4} className="box_products" key={index}>
-                    <img src="../static/image/Image1.png" width="100%" height="200px"/>
+                    <img src="/image/Image1.png" width="100%" height="200px"/>
                     <ul className="mt-5">
                         <li>
                             <h2>Product Title</h2>
@@ -48,7 +87,6 @@ class Products extends React.Component{
                 </Col>
             )
         })
-        console.log(this.state.hover, 'HOVER');
         return (
             <Layout>
                 <section className="section_products-header">
@@ -60,7 +98,7 @@ class Products extends React.Component{
                             </Col>
                             <Col xs={12} md={4} className="filter">
                                 <div className="openFilter"  onMouseEnter={this.handleMouseHoverE} onMouseLeave={this.handleMouseHoverL}>
-                                    <h3>{this.state.pickFilter}&nbsp;&nbsp;{this.state.hover ? <img className="img-arrow" src="../static/image/down-arrow.png" width="20px;"/> : <img className="img-arrow up-arrow" src="../static/image/down-arrow.png" width="20px;" /> }</h3>
+                                    <h3>{this.state.pickFilter}&nbsp;&nbsp;{this.state.hover ? <img className="img-arrow" src="/image/down-arrow.png" width="20px;"/> : <img className="img-arrow up-arrow" src="/image/down-arrow.png" width="20px;" /> }</h3>
                                     <div className="filterBox">
                                         <ul>
                                             <li onClick={() =>{this.pickFilter('Most Recent')}}>Most Recent</li>

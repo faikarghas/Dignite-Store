@@ -12,7 +12,7 @@ h1,h2,h3,h4,h5,a,th,td{
 }
 
 label,button{
-    font-family: 'Brandon-grotesque-regular', sans-serif;
+    font-family: 'Brandon-grotesque-regular', sans-serif !important;
 }
 
 input,textarea{
@@ -27,32 +27,24 @@ input,textarea{
 @font-face {
     font-family: "Brandon-grotesque-light";
     src:
-        url('../static/fonts/Brandon-grotesque-light.woff') format('woff'),
-        // url('../static/fonts/Brandon-grotesque-light.otf') format('otf'),
-        // url('../static/fonts/Brandon-grotesque-light.ttf') format('ttf');
+        url('/fonts/Brandon-grotesque-light.woff') format('woff'),
 }
 
 @font-face {
     font-family: "Brandon-grotesque-regular";
     src:
-        url('../static/fonts/Brandon-grotesque-regular.woff') format('woff'),
-        // url('../static/fonts/Brandon-grotesque-regular.otf') format('otf'),
-        // url('../static/fonts/Brandon-grotesque-regular.ttf') format('ttf');
+        url('/fonts/Brandon-grotesque-regular.woff') format('woff'),
 }
 
 @font-face {
     font-family: "Brandon-grotesque-black";
     src:
-        url('../static/fonts/Brandon-grotesque-black.woff') format('woff'),
-        // url('../static/fonts/Brandon-grotesque-black.otf') format('otf'),
-        // url('../static/fonts/Brandon-grotesque-black.ttf') format('ttf');
+        url('/fonts/Brandon-grotesque-black.woff') format('woff'),
 }
 
 
 @font-face {
     font-family: "Brandon-grotesque-bold";
     src:
-        url('../static/fonts/Brandon-grotesque-bold.woff') format('woff'),
-        // url('../static/fonts/Brandon-grotesque-bold.otf') format('otf'),
-        // url('../static/fonts/Brandon-grotesque-bold.ttf') format('ttf');
+        url('/fonts/Brandon-grotesque-bold.woff') format('woff'),
 }

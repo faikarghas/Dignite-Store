@@ -1,6 +1,10 @@
 export {
+    register,
     authenticate,
     reauthenticate,
     deauthenticate,
-    addcart
+    verify_auth,
+    addcart,
+    switchFormHandler,
+    switchFormHandler2
 } from './action';

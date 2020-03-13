@@ -10,7 +10,7 @@ footer{
     .input-group{
         input{
             height: 5.5rem;
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
     }
     .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control, .input-group>.form-control-plaintext {
@@ -31,10 +31,12 @@ footer{
         ul{
             list-style: none;
             li{
-                font-size: 1.8rem;
-                font-weight: 700;
-                color: #454AFC;
-                cursor: pointer;
+                a{
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #454AFC;
+                    cursor: pointer;
+                }
                 img{
                     @include respond(phone){
                         width: 20px;

@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 
-import '../sass/main.scss'
 
 const index = () => {
     return (
@@ -10,9 +9,7 @@ const index = () => {
                 <title>Dignite Store</title>
             </Head>
             <div className="comingsoon">
-                <header>
-                    {/* <img src="../static/image/logo.png" width="100px" height="100px"/> */}
-                </header>
+                <header> </header>
                 <div className="cs">
                     <h1>Coming <br/> Soon</h1>
                     <p>The most anticipated digital products store.</p>
@@ -26,9 +23,9 @@ const index = () => {
                         <div className="col-4" style={{borderBottom:'1px solid white'}}></div>
                         <div className="col-4" style={{position:'realtive'}}>
                             <ul>
-                                <li><img src="../static/image/SocialIcons/fb-white.png" width="30px" height="30px" alt="logo-fb"/></li>
-                                <li><a href="https://www.instagram.com/dignitestudio/" target="_blank"><img src="../static/image/SocialIcons/instagram-white.png" width="30px" height="30px" alt="logo-ig"/></a></li>
-                                <li><img src="../static/image/SocialIcons/twitter-white.png" width="30px" height="30px" alt="logo-tw"/></li>
+                                <li><img src="/image/SocialIcons/fb-white.png" width="30px" height="30px" alt="logo-fb"/></li>
+                                <li><a href="https://www.instagram.com/dignitestudio/" target="_blank"><img src="/image/SocialIcons/instagram-white.png" width="30px" height="30px" alt="logo-ig"/></a></li>
+                                <li><img src="/image/SocialIcons/twitter-white.png" width="30px" height="30px" alt="logo-tw"/></li>
                             </ul>
                         </div>
                         <div className="col-4" style={{borderBottom:'1px solid white'}}></div>

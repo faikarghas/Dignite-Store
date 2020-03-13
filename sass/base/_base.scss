@@ -50,3 +50,9 @@ a {
 }
 
 button:focus {outline:0;}
+
+@media (min-width: 960px){
+    .MuiContainer-maxWidthMd {
+        max-width: 1100px !important;
+    }
+}

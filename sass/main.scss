@@ -6,6 +6,8 @@
 @import "base/_typography";
 @import "base/_utilities";
 
+@import "components/_boxAuth.scss";
+
 @import "layout/_comingsoon.scss";
 @import "layout/_header.scss";
 @import "layout/_footer.scss";
@@ -22,6 +24,7 @@
 @import "pages/_orders.scss";
 @import "pages/_downloads.scss";
 @import "pages/_wishlist.scss";
+@import "pages/_forgetPassword.scss";
 
 
 

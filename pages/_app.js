@@ -1,9 +1,14 @@
 import App, { Container } from 'next/app';
 import React from 'react';
-import withReduxStore from '../lib/with-redux-store';
+// import withReduxStore from '../lib/with-redux-store';
+import withRedux from 'next-redux-wrapper'
+import store, { initializeStore } from '../redux/initStore'
 import { Provider } from 'react-redux';
 import Router from 'next/router';
 import NProgress from 'nprogress'
+
+import '../sass/main.scss'
+
 
 // NProgress
 Router.events.on('routeChangeStart', url => {
@@ -15,13 +20,13 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 class MyApp extends App {
     // NProgress
-    static async getInitialProps ({ Component, router, ctx }) {
-        let pageProps = {}
-        if (Component.getInitialProps) {
-          pageProps = await Component.getInitialProps(ctx)
-        }
-        return { pageProps }
-    }
+    // static async getInitialProps ({ Component, router, ctx }) {
+    //     let pageProps = {}
+    //     if (Component.getInitialProps) {
+    //       pageProps = await Component.getInitialProps(ctx)
+    //     }
+    //     return { pageProps }
+    // }
 
     // handler refresh back button history
     componentDidMount() {
@@ -30,15 +35,13 @@ class MyApp extends App {
         });
     }
     render() {
-        const { Component, pageProps, reduxStore } = this.props
+        const { Component, pageProps, store } = this.props
         return (
-            <Container>
-                <Provider store={reduxStore}>
-                    <Component {...pageProps} />
-                </Provider>
-            </Container>
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
         )
     }
 }
 
-export default withReduxStore(MyApp)
+export default withRedux(initializeStore)(MyApp)

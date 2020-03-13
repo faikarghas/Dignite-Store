@@ -16,27 +16,6 @@ app.prepare()
     server.use(compression());
     server.use(cookieParser());
 
-
-    server.get('/account/change-password', (req, res) => {
-        const actualPage = '/chpassword'
-        return app.render(req, res, actualPage)
-    })
-
-    server.get('/account/orders', (req, res) => {
-        const actualPage = '/orders'
-        return app.render(req, res, actualPage)
-    })
-
-    server.get('/account/downloads', (req, res) => {
-        const actualPage = '/downloads'
-        return app.render(req, res, actualPage)
-    })
-
-    server.get('/account/wishlist', (req, res) => {
-        const actualPage = '/wishlist'
-        return app.render(req, res, actualPage)
-    })
-
     server.get('*', (req, res) => {
         return handle(req, res)
     })

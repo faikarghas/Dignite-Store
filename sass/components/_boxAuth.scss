@@ -1,0 +1,178 @@
+.back_box_userlogin{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: #22222287;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .box_userlogin{
+      width: 65%;
+      height: 80%;
+      background-color: white;
+      box-shadow: 0 1px 4px rgba(3,27,78,.308);
+      position: fixed;
+      .full-height{
+        height: 100%;
+      }
+      &-left{
+        background-image: url('/image/Background/LoginPopup.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        padding: 3.5rem;
+        h2,p{
+          color: white;
+        }
+        h2{
+          font-size: 5rem;
+          margin-bottom: 7rem;
+        }
+        p{
+          font-size: 2.5rem;
+          font-weight: 200;
+          line-height: 2.5rem;
+        }
+        .short_border{
+          border-bottom: 2px solid white;
+          width: 2.5rem;
+          margin-bottom: 3rem;
+        }
+      }
+      &-right{
+        .sign_header{
+          position: relative;
+          border-bottom: 2px solid #70707061;
+          padding: 2rem;
+          height: 15%;
+          display: flex;
+          align-items: center;
+          h3{
+            font-size: 2.7rem;
+            color: #707070;
+            margin: 0;
+          }
+          .top-right{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+          }
+        }
+        .sign_auth{
+          padding: 3rem;
+          height: 75%;
+          display: flex;
+          align-items: center;
+          height: 70%;
+          form{
+            width: 100%;
+              input{
+                padding: 1rem;
+                font-size: 1.6rem;
+                &:focus{
+                  outline: none !important;
+                  box-shadow: none;
+                }
+                &::placeholder{
+                  font-size: 1.6rem;
+                }
+              }
+              .MuiFormHelperText-contained {
+                margin: 8px 14px 0 0;
+                font-size: 1.2rem;
+                color: red;
+                font-family: 'Brandon-grotesque-regular',sans-serif;
+              }
+              
+              .forget-password{
+                cursor: pointer;
+              }
+              .border-right-0{
+                border-right: none;
+              }
+              fieldset{
+                border-radius:0;
+
+              }
+              .pass_input{
+                fieldset{
+                  // border-right: none;
+                }
+              }
+              .button_wrapper{
+                position: relative;
+                button{
+                  width: 100%;
+                  background-color: #454AFC;
+                  color: white;
+                  font-size: 1.6rem;
+                  height: 5rem;
+                }
+                .MuiButton-outlined.Mui-disabled {
+                  background-color: rgba(126, 130, 247, 0.63);
+                }
+                .buttonProgress{
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  margin-top: -12px;
+                  margin-left: -12px;
+                }
+              }
+              .show_pass{
+                background-color: rgb(255, 255, 255);
+                color: #454AFC;
+                font-size: 1.6rem;
+                font-family: 'Brandon-grotesque-regular', sans-serif;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-right: 1px solid;
+                border-top: 1px solid;
+                border-bottom: 1px solid;
+                border-color: rgba(0, 0, 0, 0.23);
+                &:hover{
+                  background-color: #454AFC;
+                  color: white;
+                }
+                p{
+                  margin: 0;
+                }
+              }
+          }
+          .input-group-text{
+            background-color: rgb(212, 212, 212);
+            color: #454AFC;
+            font-size: 1.6rem;
+            font-family: 'Brandon-grotesque-regular', sans-serif;
+            cursor: pointer;
+          }
+        }
+        .sign_footer{
+          background: hsl(0, 0%, 85%);
+          border-top: 2px solid #70707061;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 2rem;
+          height: 15%;
+          p{
+            margin: 0;
+          }
+          span{
+            color: #454AFC;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }

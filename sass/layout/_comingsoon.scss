@@ -1,5 +1,5 @@
 .comingsoon{
-    background-image: url('../static/image/Background2.png');
+    background-image: url('/image/Background2.png');
     height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
@@ -92,12 +92,12 @@
     }
     .ex{
         position: absolute;
-        top: 20%;
+        top: 15%;
         right: 5%;
         width: 500px;
-        transform: rotate(90deg);
-        top: 45%;
-        right: -10%;
+        transform: translateY(-50%) rotate(-90deg);
+        right: 6%;
+        transform-origin: top right;
         @include respond(tab-port){
             bottom: 7%;
             right: 10%;
@@ -118,7 +118,7 @@
                 list-style: none;
                 img{
                     object-fit: contain;
-                    transform: rotate(270deg);
+                    transform: rotate(-270deg);
                     @include respond(tab-port){
                         transform: none;
                         width: 25px;

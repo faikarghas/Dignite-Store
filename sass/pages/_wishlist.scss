@@ -1,5 +1,7 @@
 .wishlist{
+    padding: 0 4rem;
     .box_products{
+        padding: 0 1rem;
         ul{
             list-style: none;
             display: flex;
@@ -18,6 +20,9 @@
         }
         &-img{
             position: relative;
+            img{
+                object-fit: cover;
+            }
             .loveImg{
                 cursor: pointer;
                 width: 20px;

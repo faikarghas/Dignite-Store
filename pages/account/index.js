@@ -1,37 +1,81 @@
 import React, { Component } from 'react'
-import {Container,Row,Col,Nav,Tab,Form,Button} from 'react-bootstrap'
+import {Container,TextField, Grid } from "@material-ui/core"
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from 'next/link'
-import Layout from '../components/layouts'
+import Router from 'next/router'
+import Layout from '../../components/layouts'
+import Bread from '../../components/presentational/breadcrumb'
+import Nav from '../../components/presentational/tabNavAccount'
+import { connect } from 'react-redux'
+import {getCookie} from '../../lib/cookie'
+import * as action from '../../redux/actionIndex'
+import {reauthenticate,verify_auth,deauthenticate} from '../../redux/action'
 
-import '../sass/main.scss'
 
 class Account extends Component {
+
+    static async getInitialProps(ctx){
+
+
+        if(ctx.res){
+          ctx.res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+        }
+
+        if(ctx && !process.browser) {
+            if(ctx.req.headers.cookie) {
+                 // get cookie
+                 const token = getCookie('token', ctx.req)
+                 // verify cookie
+                 let aw = await ctx.store.dispatch(verify_auth(token))
+                 // if true reauth
+                 if (aw.success === true) {
+                    await ctx.store.dispatch(reauthenticate(getCookie('token', ctx.req),getCookie('idusers', ctx.req)))
+                 } else {
+                    await ctx.store.dispatch(deauthenticate())
+                    ctx.res.writeHead(302, {Location: '/home'})
+                    ctx.res.end()
+                 }
+            }
+        } else {
+            // verify token
+            const token = ctx.store.getState().auth.token;
+
+            let aw = await ctx.store.dispatch(verify_auth(token))
+            if (aw.success === true) {
+            } else {
+                await ctx.store.dispatch(deauthenticate())
+                Router.push('/home')
+            }
+        }
+
+        return { }
+
+    }
+
+    logout = () => {
+        this.props.deauthenticate()
+        .then(data=>{
+            if(data) Router.push('/')
+        })
+    }
+
     render() {
         return (
             <Layout>
                 <div className="account">
-                    <Container>
-                            <Row>
-                                <Col xs={12} >
-                                    <div className="link-category">
-                                        <Link href="/home"><a>Home > </a></Link><Link href="/account"><a>Account</a></Link>
-                                    </div>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col md={3}>
-                                    <Nav defaultActiveKey="/account" className="flex-column">
-                                        <Link href="/account" ><a className="link-acc active-link">Edit Profile</a></Link>
-                                        <Link href="/chpassword" as="/account/change-password" ><a className="link-acc">Change Password</a></Link>
-                                        <Link href="/orders" as="/account/orders" ><a className="link-acc">Orders</a></Link>
-                                        <Link href="/orders" as="/account/downloads" ><a className="link-acc">Downloads</a></Link>
-                                        <Link href="/orders" as="/account/wishlist" ><a className="link-acc">Wishlist</a></Link>
-                                        <p className="link-acc">Logout</p>
-                                    </Nav>
-                                </Col>
-                                <Col md={9}>
+                    <Container maxWidth="md">
+                            <Grid container>
+                                <Grid item xs={12} >
+                                    <Bread data={[{name:'Home',link:'/home'},{name:'Account',link:'/account'}]}/>
+                                </Grid>
+                            </Grid>
+                            <Grid container>
+                                <Grid item md={3}>
+                                    <Nav/>
+                                </Grid>
+                                <Grid item md={9}>
                                     <div className="edit-profile">
-                                        <Form>
+                                        {/* <Form>
                                             <Form.Group as={Row}>
                                                 <Form.Label column sm="3">
                                                 Full Name
@@ -105,10 +149,10 @@ class Account extends Component {
                                                     </Button>
                                                 </Col>
                                             </Form.Group>
-                                        </Form>
+                                        </Form> */}
                                     </div>
-                                </Col>
-                            </Row>
+                                </Grid>
+                            </Grid>
                     </Container>
                 </div>
             </Layout>
@@ -116,5 +160,16 @@ class Account extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+    //   idusers: state.authidusers
+    }
+  }
 
-export default Account
+const mapDispatchToProps = dispatch => {
+    return {
+      deauthenticate : () => dispatch(action.deauthenticate())
+    }
+}
+
+export default connect(null,mapDispatchToProps)(Account)

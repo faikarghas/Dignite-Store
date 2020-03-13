@@ -6,18 +6,17 @@ import * as actionTypes from './actionType';
 import {updateObject} from '../lib/updateObject'
 
 
-const exampleInitialState = {
+export const authState = {
     idusers: null,
     token: null,
-    infoReg:null,
-    infoRegErr:[],
-    loginLoading: false,
-    message: null,
-    jumlahBelanja: 0
+    login_email_info: null,
+    login_password_info: null,
+    switchForm: false,
+    currForm: 'login'
 }
 
 // REDUCERS
-export const reducer = (state = exampleInitialState, action) => {
+export const auth = (state = authState, action) => {
     switch (action.type) {
         case actionTypes.REGISTER_FAIL:
             return updateObject(state,{infoRegErr: action.payload});
@@ -25,22 +24,24 @@ export const reducer = (state = exampleInitialState, action) => {
             return updateObject(state,{infoReg: action.payload,infoRegErr:[]});
         case actionTypes.AUTHENTICATE:
             return updateObject(state,{idusers: action.idusers,token: action.payload});
-        case actionTypes.LOGINLOADING:
-            return updateObject(state,{loginLoading:action.loginLoading});
         case actionTypes.DEAUTHENTICATE:
-            return updateObject(state,{token: null});
+            return updateObject(state,{token: null,idusers: null});
         case actionTypes.REAUTHENTICATE:
             return updateObject(state,{idusers: action.idusers,token: action.payload});
-        case actionTypes.WRONGPASSWORD:
-            return updateObject(state,{message: action.message});
-        case actionTypes.ADDCART:
-            return updateObject(state,{jumlahBelanja: action.payload});
+        case actionTypes.EMAIL_LOGIN_INFORMATION:
+            return updateObject(state,{login_email_info: action.message});
+        case actionTypes.PASSWORD_LOGIN_INFORMATION:
+            return updateObject(state,{login_password_info: action.message});
+        case actionTypes.SWITCHFORM:
+            return updateObject(state,{switchForm: action.switch});
+        case actionTypes.CURRFORM:
+            return updateObject(state,{currForm: action.payload});
         default:
             return state
     }
 }
 
-export const initializeStore = (initialState = exampleInitialState) => {
+export const initializeStore = (initialState) => {
     return createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)))
-  }
+}
 
